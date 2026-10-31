@@ -78,7 +78,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Phase 1: Setup tasks (project initialization)
    - Phase 2: Foundational tasks (blocking prerequisites for all user stories)
    - Phase 3+: One phase per user story (in priority order from spec.md)
-   - Each phase includes: story goal, independent test criteria, tests (if requested), implementation tasks
+   - Each story phase includes: story goal, independent test criteria, and TDD cycle tasks covering its behavior
    - Final Phase: Polish & cross-cutting concerns
    - All tasks must follow the strict checklist format (see Task Generation Rules below)
    - Clear file paths for each task
@@ -139,7 +139,7 @@ The tasks.md should be immediately executable - each task must be specific enoug
 
 **CRITICAL**: Tasks MUST be organized by user story to enable independent implementation and testing.
 
-**Tests are OPTIONAL**: Only generate test tasks if explicitly requested in the feature specification or if user requests TDD approach.
+**TDD is REQUIRED**: For every behavior-changing feature or bug fix, including foundational behavior, generate tasks that apply `.github/skills/tdd/SKILL.md`. Derive a test list from requirements and include normal, boundary, failure, and regression cases as applicable. Each task describes a small behavior, its test and implementation paths, and its Red → Green → Refactor cycle; do not generate a phase that writes all test code before implementing. Setup, documentation-only changes, and configuration without behavior changes do not require a Red cycle. Preserve existing behavior during refactoring using passing tests.
 
 ### Checklist Format (REQUIRED)
 
@@ -181,12 +181,12 @@ Every task MUST strictly follow this format:
      - Models needed for that story
      - Services needed for that story
      - Interfaces/UI needed for that story
-     - If tests requested: Tests specific to that story
+     - TDD cycle tasks for behavior specific to that story
    - Mark story dependencies (most stories should be independent)
 
 2. **From Contracts**:
    - Map each interface contract → to the user story it serves
-   - If tests requested: Each interface contract → contract test task [P] before implementation in that story's phase
+   - Map applicable interface contract behavior to TDD cycle tasks in that story's phase, with the appropriate test level
 
 3. **From Data Model**:
    - Map each entity to the user story(ies) that need it
@@ -204,12 +204,13 @@ Every task MUST strictly follow this format:
 - **Phase 1**: Setup (project initialization)
 - **Phase 2**: Foundational (blocking prerequisites - MUST complete before user stories)
 - **Phase 3+**: User Stories in priority order (P1, P2, P3...)
-  - Within each story: Tests (if requested) → Models → Services → Endpoints → Integration
+  - Within each story: iterate through small behavior-specific TDD cycles, respecting dependencies between models, services, and integration
   - Each phase should be a complete, independently testable increment
 - **Final Phase**: Polish & Cross-Cutting Concerns
 
 ## Done When
 
 - [ ] tasks.md generated with all phases, task IDs, and file paths
+- [ ] Each behavior-changing task has a corresponding test path and an explicit Red → Green → Refactor cycle, including foundational behavior
 - [ ] Extension hooks dispatched or skipped according to the rules in Mandatory Post-Execution Hooks above
 - [ ] Completion reported to user with task count, story breakdown, and MVP scope

@@ -11,7 +11,7 @@
 | `lib/**` の構成・機能間連携 | [architecture-vertical-slices.md](./architecture-vertical-slices.md)、[architecture-feature-boundaries.md](./architecture-feature-boundaries.md) |
 | Markdown解析、ファイル入出力、データモデル | [data-markdown-repository.md](./data-markdown-repository.md)、[data-model-boundaries.md](./data-model-boundaries.md)、[data-markdown-compatibility.md](./data-markdown-compatibility.md) |
 | Dart/Flutterコード全般 | [quality-simplicity.md](./quality-simplicity.md)、[quality-code-comments.md](./quality-code-comments.md) |
-| `test/**`、`integration_test/**`、テスト変更 | [testing-strategy.md](./testing-strategy.md)、[testing-fakes.md](./testing-fakes.md) |
+| 機能追加・バグ修正、`test/**`、`integration_test/**`、テスト変更 | [testing-strategy.md](./testing-strategy.md)、[testing-fakes.md](./testing-fakes.md) |
 | 開発・検証コマンド | [reference-flutter-dev.md](./reference-flutter-dev.md) |
 
 ## 技術・要件との整合
