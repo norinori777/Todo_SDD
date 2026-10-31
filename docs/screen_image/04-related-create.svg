@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="920" viewBox="0 0 460 920" role="img" aria-labelledby="title desc">
+  <title id="title">関連情報の作成・リンク候補</title>
+  <desc id="desc">既存Todoに関連するMarkdownを作成し、既存Markdownのリンク候補を選ぶイメージ。</desc>
+  <rect width="460" height="920" rx="28" fill="#f3f5f9"/>
+  <rect x="14" y="14" width="432" height="892" rx="24" fill="#ffffff" stroke="#dce3ee" stroke-width="2"/>
+  <g font-family="'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif">
+    <text x="38" y="49" font-size="13" fill="#58677e">9:41</text>
+    <text x="414" y="49" text-anchor="end" font-size="13" fill="#58677e">●  ▰</text>
+    <text x="38" y="102" font-size="26" fill="#52627b">‹</text>
+    <text x="75" y="101" font-size="22" font-weight="700" fill="#17243a">関連情報を作成</text>
+    <rect x="38" y="125" width="384" height="61" rx="14" fill="#eef0ff"/>
+    <text x="54" y="148" font-size="11" fill="#7580be">関連元のTodo</text>
+    <text x="54" y="171" font-size="14" font-weight="700" fill="#4e5eac">企画書をまとめる</text>
+    <text x="39" y="219" font-size="14" font-weight="700" fill="#34445d">タイトル <tspan fill="#d55c70">*</tspan></text>
+    <rect x="38" y="232" width="384" height="53" rx="14" fill="#ffffff" stroke="#cdd7e6" stroke-width="1.5"/>
+    <text x="54" y="265" font-size="15" fill="#25364f">企画の参考資料</text>
+    <text x="39" y="319" font-size="14" font-weight="700" fill="#34445d">内容 <tspan font-weight="400" fill="#93a0b1">（任意）</tspan></text>
+    <rect x="38" y="332" width="384" height="46" rx="12" fill="#f0f3f8"/>
+    <rect x="42" y="336" width="187" height="38" rx="9" fill="#ffffff"/>
+    <text x="135" y="361" text-anchor="middle" font-size="14" font-weight="700" fill="#5364ce">入力</text>
+    <text x="326" y="361" text-anchor="middle" font-size="14" fill="#7d8ba0">プレビュー</text>
+    <rect x="38" y="388" width="384" height="287" rx="15" fill="#ffffff" stroke="#cdd7e6"/>
+    <text x="55" y="420" font-size="14" fill="#354660">[[企画書をまとめる]]</text>
+    <text x="55" y="452" font-size="14" fill="#354660">参考：[[打ち</text>
+    <line x1="164" y1="436" x2="164" y2="456" stroke="#5969d8" stroke-width="2"/>
+    <rect x="54" y="470" width="318" height="112" rx="12" fill="#ffffff" stroke="#cdd7e6"/>
+    <text x="70" y="495" font-size="11" fill="#8a97aa">既存Markdownの候補</text>
+    <rect x="62" y="505" width="302" height="36" rx="8" fill="#f0f2ff"/>
+    <text x="74" y="529" font-size="13" fill="#4e60c7">打ち合わせメモ</text>
+    <text x="74" y="562" font-size="12" fill="#53647b">打ち合わせアジェンダ</text>
+    <text x="40" y="700" font-size="12" fill="#8290a3">関連元へのリンクは自動で付与されます。</text>
+    <text x="40" y="721" font-size="12" fill="#8290a3">[[入力で候補を部分一致検索。候補がない場合、</text>
+    <text x="40" y="741" font-size="12" fill="#8290a3">Enterを押してもリンクは追加されません。</text>
+    <rect x="38" y="800" width="384" height="55" rx="16" fill="#5969d8"/>
+    <text x="230" y="835" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">作成する</text>
+    <rect x="184" y="879" width="92" height="4" rx="2" fill="#c6ceda"/>
+  </g>
+</svg>

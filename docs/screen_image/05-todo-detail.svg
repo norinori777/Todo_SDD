@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="920" viewBox="0 0 460 920" role="img" aria-labelledby="title desc">
+  <title id="title">Todo詳細画面</title>
+  <desc id="desc">Markdownのプレビュー、関連情報へのリンク、戻る操作を示す詳細画面。</desc>
+  <rect width="460" height="920" rx="28" fill="#f3f5f9"/>
+  <rect x="14" y="14" width="432" height="892" rx="24" fill="#ffffff" stroke="#dce3ee" stroke-width="2"/>
+  <g font-family="'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif">
+    <text x="38" y="49" font-size="13" fill="#58677e">9:41</text>
+    <text x="414" y="49" text-anchor="end" font-size="13" fill="#58677e">●  ▰</text>
+    <text x="38" y="102" font-size="26" fill="#52627b">‹</text>
+    <text x="75" y="101" font-size="22" font-weight="700" fill="#17243a">Todoの詳細</text>
+    <text x="38" y="160" font-size="25" font-weight="700" fill="#17243a">企画書をまとめる</text>
+    <rect x="38" y="180" width="116" height="28" rx="14" fill="#eef0ff"/>
+    <text x="50" y="199" font-size="12" fill="#5965bb">#仕事/企画</text>
+    <line x1="38" y1="234" x2="422" y2="234" stroke="#e7ecf3"/>
+    <text x="38" y="279" font-size="22" font-weight="700" fill="#25364f">TODO</text>
+    <line x1="38" y1="296" x2="422" y2="296" stroke="#e7ecf3"/>
+    <text x="38" y="332" font-size="14" fill="#53647b">企画の方向性を整理する。</text>
+    <text x="38" y="378" font-size="16" font-weight="700" fill="#354660">関連情報</text>
+    <text x="38" y="413" font-size="14" fill="#4f61c7">↗ 企画の参考資料</text>
+    <line x1="54" y1="418" x2="169" y2="418" stroke="#8a98e2"/>
+    <text x="38" y="448" font-size="14" fill="#4f61c7">↗ 打ち合わせメモ</text>
+    <line x1="54" y1="453" x2="169" y2="453" stroke="#8a98e2"/>
+    <rect x="38" y="481" width="384" height="67" rx="14" fill="#f5f7fb"/>
+    <text x="54" y="507" font-size="12" fill="#697990">リンクをタップすると、対象の</text>
+    <text x="54" y="527" font-size="12" fill="#697990">Markdownを表示します。</text>
+    <rect x="38" y="800" width="384" height="55" rx="16" fill="#ffffff" stroke="#b9c3e6" stroke-width="1.5"/>
+    <text x="230" y="835" text-anchor="middle" font-size="15" font-weight="700" fill="#5364ce">＋  関連情報を作成</text>
+    <rect x="184" y="879" width="92" height="4" rx="2" fill="#c6ceda"/>
+  </g>
+</svg>
