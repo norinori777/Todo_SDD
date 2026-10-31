@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="920" viewBox="0 0 460 920" role="img" aria-labelledby="title desc">
+  <title id="title">Todo一覧画面</title>
+  <desc id="desc">検索、階層タグ、関連情報の展開と完了操作を示す一覧画面のイメージ。</desc>
+  <rect width="460" height="920" rx="28" fill="#f3f5f9"/>
+  <rect x="14" y="14" width="432" height="892" rx="24" fill="#ffffff" stroke="#dce3ee" stroke-width="2"/>
+  <g font-family="'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif">
+    <text x="38" y="49" font-size="13" fill="#58677e">9:41</text>
+    <text x="414" y="49" text-anchor="end" font-size="13" fill="#58677e">●  ▰</text>
+    <text x="38" y="103" font-size="28" font-weight="700" fill="#17243a">Todo</text>
+    <text x="38" y="130" font-size="14" fill="#718096">やることを、すっきり整理。</text>
+    <rect x="367" y="69" width="51" height="51" rx="16" fill="#f0f3f9"/>
+    <text x="392" y="102" text-anchor="middle" font-size="24" fill="#52627b">⚙</text>
+    <rect x="38" y="157" width="384" height="52" rx="15" fill="#f3f6fa" stroke="#e2e8f1"/>
+    <text x="54" y="190" font-size="17" fill="#718096">⌕</text>
+    <text x="81" y="189" font-size="14" fill="#8491a4">タイトル または #タグで検索</text>
+    <text x="38" y="248" font-size="17" font-weight="700" fill="#25364f">すべてのTodo</text>
+    <text x="422" y="248" text-anchor="end" font-size="13" fill="#8390a3">3 件</text>
+    <rect x="38" y="267" width="384" height="223" rx="18" fill="#ffffff" stroke="#dce4ef"/>
+    <rect x="39" y="284" width="4" height="51" rx="2" fill="#6575df"/>
+    <circle cx="65" cy="301" r="10" fill="#ffffff" stroke="#b3bfd0" stroke-width="2"/>
+    <text x="88" y="307" font-size="16" font-weight="700" fill="#25364f">企画書をまとめる</text>
+    <rect x="88" y="320" width="133" height="27" rx="13" fill="#eef0ff"/>
+    <text x="100" y="339" font-size="12" fill="#5965bb">#仕事 / 企画</text>
+    <text x="399" y="306" text-anchor="end" font-size="20" fill="#9ba8ba">›</text>
+    <line x1="58" y1="363" x2="402" y2="363" stroke="#edf0f5"/>
+    <text x="62" y="391" font-size="13" font-weight="700" fill="#697990">⌄  関連情報</text>
+    <text x="402" y="391" text-anchor="end" font-size="12" fill="#96a3b4">2 件</text>
+    <line x1="73" y1="405" x2="73" y2="465" stroke="#d9e0ed" stroke-width="2"/>
+    <text x="91" y="427" font-size="14" fill="#4a5ab7">↗  企画の参考資料</text>
+    <text x="91" y="457" font-size="14" fill="#4a5ab7">↗  打ち合わせメモ</text>
+    <rect x="38" y="502" width="384" height="88" rx="18" fill="#ffffff" stroke="#dce4ef"/>
+    <circle cx="65" cy="536" r="10" fill="#ffffff" stroke="#b3bfd0" stroke-width="2"/>
+    <text x="88" y="542" font-size="16" font-weight="700" fill="#25364f">買い物リストを確認</text>
+    <text x="88" y="570" font-size="12" fill="#73829a">#生活 / 買い物</text>
+    <text x="399" y="542" text-anchor="end" font-size="20" fill="#9ba8ba">›</text>
+    <rect x="38" y="602" width="384" height="88" rx="18" fill="#ffffff" stroke="#dce4ef"/>
+    <circle cx="65" cy="636" r="10" fill="#ffffff" stroke="#b3bfd0" stroke-width="2"/>
+    <text x="88" y="642" font-size="16" font-weight="700" fill="#25364f">本を返却する</text>
+    <text x="88" y="670" font-size="12" fill="#73829a">#生活 / 読書</text>
+    <text x="399" y="642" text-anchor="end" font-size="20" fill="#9ba8ba">›</text>
+    <rect x="38" y="712" width="384" height="65" rx="15" fill="#f5f7fb"/>
+    <text x="56" y="738" font-size="12" fill="#65758d">← 左にスワイプして完了</text>
+    <text x="56" y="758" font-size="12" fill="#65758d">タップで詳細 ／ 長押しで編集</text>
+    <rect x="38" y="800" width="384" height="55" rx="16" fill="#5969d8"/>
+    <text x="230" y="835" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">＋  Todoを作成</text>
+    <rect x="184" y="879" width="92" height="4" rx="2" fill="#c6ceda"/>
+  </g>
+</svg>

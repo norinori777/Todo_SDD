@@ -1,50 +1,137 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+同期影響レポート（レビュー後、コミット前に削除）
+バージョン: 未制定 → 1.0.0（初版）
+変更した原則: なし（既存ファイルは未記入のテンプレート）
+追加した原則:
+  I. 要件とユーザーデータの保護
+  II. 機能単位のアーキテクチャ
+  III. シンプルで保守しやすい実装
+  IV. 振る舞いとデータ保護を重視したテスト
+  V. 日本語でのコミュニケーション
+追加したセクション: 適用範囲と参照、開発・検証方針、ガバナンス
+削除したセクション: なし
+未解決事項: Todoの識別表記、完了状態の保存形式、削除方法、
+  タグリンク押下時の動作、関連情報のリンク方法を仕様策定時に確認する。
+-->
+
+# Obsidian TODO APP Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 要件とユーザーデータの保護
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+- [アプリの要件](../../docs/requirements/requirements.md)を機能要件の参照元とする。
+  未定義または曖昧な仕様は推測で確定せず、影響を整理して確認する。
+- ユーザーが指定したフォルダー内のMarkdownを永続データの正本とする。
+  既存のMarkdownを更新するときは、編集対象外の本文、タグ、階層タグ、
+  Wikiリンク、frontmatter、見出し、書式および未対応の内容を意図せず失わない。
+- 読み込み、解析、保存、権限の失敗を成功として扱わず、呼び出し側に伝え、
+  ユーザーに状況と必要な対処を示す。保存失敗時に元データを破壊しない。
+- 複数ファイルを更新する操作では、部分的な成功・失敗と残る状態を考慮し、
+  整合性を保つ方法と失敗時の扱いを設計・検証する。
+- 指定フォルダー以外を読み書きせず、Markdownの内容やファイル情報を
+  別途承認された要件なしに外部送信しない。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+理由: MarkdownはObsidianなど他のツールでも利用されるユーザーのデータである。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. 機能単位のアーキテクチャ
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+- Todoや設定など、ユーザーが認識する機能ごとにコードを整理する。
+  Todo固有のRepository、モデル、画面などは `features/todo/` 内に配置する。
+- 機能間の連携は公開インターフェースを通じて行い、他機能の内部実装に直接依存しない。
+  機能横断の共通処理だけを共通領域に置き、共通コードから特定機能へ逆依存しない。
+- Markdownの探索、読み書き、解析、直列化をデータアクセス境界に集約する。
+  UIにファイル操作や解析の詳細を持ち込まず、型付きモデルを介して扱う。
+- 小さな機能に不要な層やファイルを強制せず、責務と依存方向を明確にする。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+理由: データ形式の変更や機能間の変更が無関係な画面へ波及することを防ぐ。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. シンプルで保守しやすい実装
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- 現在の要件を満たすために必要な範囲で設計する。データ保護やエラー処理は省略しない。
+- 要件上不要なサーバー、API、データベース、抽象化、コード生成、
+  依存パッケージを追加しない。追加する場合は、その必要性を説明する。
+- コメントは自明な処理を言い換えるためではなく、非自明な理由、制約、
+  回避策やデータ保護上の判断を説明するために使う。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+理由: 不必要な複雑さを避け、変更と保守の負担を抑える。
+
+### IV. 振る舞いとデータ保護を重視したテスト
+
+- Flutter標準の `flutter_test` と `integration_test` を使用し、
+  変更に応じて単体・Widget・結合テストを選択する。
+- 正常系に加え、読み込み・保存・権限などの失敗、編集対象外のデータ保持、
+  複数ファイルの部分的な保存失敗を、該当する変更で検証する。
+  Fakeを使うテストに加え、実ファイルの解析・保存も一時ディレクトリ等で検証する。
+- 依存を置き換える場合はまずFakeを検討し、相互作用の検証などで必要な場合にMockを使う。
+- 統合テストの標準コマンドは `flutter test integration_test` とする。
+  一律のカバレッジ率ではなく、重要な振る舞いと失敗経路を意味のあるアサーションで検証する。
+
+理由: 正常系の通過だけでは、既存ノートの破損や保存失敗を検出できない。
+
+### V. 日本語でのコミュニケーション
+
+- プロンプトのやり取りと作成するドキュメントは日本語とする。
+- コードの識別子、コマンド、技術用語は適切な表記を維持する。
+
+理由: プロジェクトの判断と作業内容を関係者が共有しやすくする。
+
+## 適用範囲と参照
+
+- この憲法は、FlutterとDartを使用するAndroid向けMarkdown Todoアプリの
+  仕様策定、設計、実装、テスト、レビュー、ドキュメントに適用する。
+  Obsidianで管理するTodoの参照・作成・更新・削除は要件に従い扱う。
+- 開発ルールの入口は[ルール一覧](../../agents/rules/flutter-todo/README.md)とし、
+  対象に応じて以下の詳細を参照する。
+  - 機能構成・依存境界:
+    [機能単位の構成](../../agents/rules/flutter-todo/architecture-vertical-slices.md)、
+    [機能間の境界](../../agents/rules/flutter-todo/architecture-feature-boundaries.md)
+  - Markdown・データモデル:
+    [Repository](../../agents/rules/flutter-todo/data-markdown-repository.md)、
+    [モデルの境界](../../agents/rules/flutter-todo/data-model-boundaries.md)、
+    [Obsidian互換性](../../agents/rules/flutter-todo/data-markdown-compatibility.md)
+  - コード品質:
+    [シンプルさ](../../agents/rules/flutter-todo/quality-simplicity.md)、
+    [コメント](../../agents/rules/flutter-todo/quality-code-comments.md)
+  - テスト:
+    [テスト戦略](../../agents/rules/flutter-todo/testing-strategy.md)、
+    [FakeとMock](../../agents/rules/flutter-todo/testing-fakes.md)
+  - 開発・検証:
+    [Flutter開発](../../agents/rules/flutter-todo/reference-flutter-dev.md)、
+    [ホットリロード](../../agents/rules/flutter-todo/reference-flutter-hot-reload.md)
+- [作業別スキル](../../.github/skills/)は該当する作業で参照する手順であり、
+  すべてのスキルや例示された技術を無条件に適用しない。
+  スキルの例とプロジェクトの憲法・ルールが食い違う場合は、憲法・ルールに沿って判断する。
+
+## 開発・検証方針
+
+- 作業開始時に要件、該当ルール、関連するスキルを確認し、変更対象と影響を明確にする。
+  要件・憲法・ルールに矛盾がある場合は、一方を黙って変更せず、
+  矛盾と影響を報告して確認する。
+- Todoの識別表記は要件の「todoタグ」と例示された `# TODO` の関係を含めて確認する。
+  完了状態の保存形式、削除の方法、タグリンク押下時の動作、
+  関連情報のリンク方法も、必要になる前に仕様として確認する。
+  確認が必要な事項を実装上の仮定で確定しない。
+- 変更の範囲に応じて `flutter analyze`、`flutter test`、
+  `flutter test integration_test` などの適切な検証を選び、結果を記録する。
+  統合テストは対応するAndroidエミュレーターまたは端末で実行する。
+  実行できない検証がある場合は、理由と残るリスクを報告する。
+- レビューでは、要件への適合、機能境界、Markdownの保持、失敗時の扱い、
+  対応するテストと不要な複雑さの有無を確認する。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- この憲法はプロジェクトの開発・レビューに適用する基本原則であり、
+  詳細な手順は参照先のルールと該当スキルに委ねる。機能要件は要件資料を参照する。
+  資料間の矛盾は優先順位だけで黙って解決せず、影響を報告して確認する。
+- 改訂時は、変更理由、影響を受ける原則・資料、移行または追従の必要性を明示し、
+  プロジェクトの関係者のレビューと承認を得る。承認後、必要な追従作業を管理する。
+- バージョンはセマンティックバージョニングに従う。
+  後方互換性を損なう原則の削除・再定義はMAJOR、
+  原則や節の追加・実質的な拡張はMINOR、
+  意味を変えない明確化や誤記修正はPATCHを更新する。
+- 仕様、計画、実装およびレビューで憲法への適合を確認する。
+  適合できない場合は理由、影響、解決または承認に必要な対応を明示する。
+- 制定日は初版の作成日とし、更新日は憲法を改訂した日とする。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-10-31 | **Last Amended**: 2026-10-31

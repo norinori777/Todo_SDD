@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="920" viewBox="0 0 460 920" role="img" aria-labelledby="title desc">
+  <title id="title">Todo作成画面・プレビュー</title>
+  <desc id="desc">入力したMarkdownを編集できない参照モードで表示するイメージ。</desc>
+  <rect width="460" height="920" rx="28" fill="#f3f5f9"/>
+  <rect x="14" y="14" width="432" height="892" rx="24" fill="#ffffff" stroke="#dce3ee" stroke-width="2"/>
+  <g font-family="'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif">
+    <text x="38" y="49" font-size="13" fill="#58677e">9:41</text>
+    <text x="414" y="49" text-anchor="end" font-size="13" fill="#58677e">●  ▰</text>
+    <text x="38" y="102" font-size="26" fill="#52627b">‹</text>
+    <text x="75" y="101" font-size="22" font-weight="700" fill="#17243a">Todoを作成</text>
+    <text x="39" y="155" font-size="14" font-weight="700" fill="#34445d">タイトル <tspan fill="#d55c70">*</tspan></text>
+    <rect x="38" y="168" width="384" height="55" rx="14" fill="#f6f8fb" stroke="#e1e7f0"/>
+    <text x="54" y="202" font-size="15" fill="#25364f">企画書をまとめる</text>
+    <text x="39" y="259" font-size="14" font-weight="700" fill="#34445d">内容 <tspan font-weight="400" fill="#93a0b1">（参照のみ）</tspan></text>
+    <rect x="38" y="273" width="384" height="46" rx="12" fill="#f0f3f8"/>
+    <text x="135" y="302" text-anchor="middle" font-size="14" fill="#7d8ba0">入力</text>
+    <rect x="231" y="277" width="187" height="38" rx="9" fill="#ffffff"/>
+    <text x="324" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#5364ce">プレビュー</text>
+    <rect x="38" y="329" width="384" height="331" rx="15" fill="#ffffff" stroke="#dce4ef"/>
+    <text x="57" y="373" font-size="23" font-weight="700" fill="#25364f">TODO</text>
+    <line x1="57" y1="390" x2="403" y2="390" stroke="#e8edf4"/>
+    <text x="57" y="423" font-size="14" fill="#53647b">企画の方向性を整理する。</text>
+    <rect x="57" y="444" width="113" height="28" rx="14" fill="#eef0ff"/>
+    <text x="69" y="463" font-size="12" fill="#5965bb">#仕事/企画</text>
+    <rect x="56" y="499" width="348" height="57" rx="12" fill="#f5f7fb"/>
+    <text x="72" y="523" font-size="12" font-weight="700" fill="#697990">プレビューモード</text>
+    <text x="72" y="542" font-size="12" fill="#8290a3">入力に切り替えると編集できます。</text>
+    <rect x="38" y="800" width="384" height="55" rx="16" fill="#5969d8"/>
+    <text x="230" y="835" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">作成する</text>
+    <rect x="184" y="879" width="92" height="4" rx="2" fill="#c6ceda"/>
+  </g>
+</svg>
