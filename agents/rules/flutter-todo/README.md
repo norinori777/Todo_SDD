@@ -18,7 +18,7 @@
 
 - FlutterとDartを使用し、Androidアプリを対象とします。
 - 永続データの正本は指定フォルダー内のMarkdownファイルです。
-- Obsidian互換の `# TODO` タグ、階層タグ、`[[タイトル]]` リンクを保護します。
+- Obsidian互換の `#todo` タグ、階層タグ、`[[タイトル]]` リンクを保護します。
 - Prisma、PostgreSQL、Node.js、React、tRPC、Trigger.devなど、このアプリに不要な技術やCal.diy固有のパス・コマンドは適用しません。
 - 要件で保存形式や動作が定義されていない場合、既存のMarkdownを破壊する推測をせず、仕様で決めるべき事項として扱います。
 

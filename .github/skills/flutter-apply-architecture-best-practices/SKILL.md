@@ -2,7 +2,7 @@
 name: flutter-apply-architecture-best-practices
 description: 推奨されるレイヤードアプローチ（UI、ロジック、データ）を用いて Flutter アプリケーションを設計します。新しいプロジェクトを構成する場合や、拡張性を高めるためにリファクタリングする場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 20:11:20 GMT
 ---
 # Flutter アプリケーションのアーキテクチャ設計

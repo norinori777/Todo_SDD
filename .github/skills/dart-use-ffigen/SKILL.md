@@ -2,7 +2,7 @@
 name: dart-use-ffigen
 description: FFI バインディングを手作業で記述する代わりに、`package:ffigen` で自動生成するようエージェントを案内します。新しい FFI バインディングの作成、C／Objective-C／Swift 連携の拡張、または手作業で構築された `dart:ffi` の置き換えを行うタスクで使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Thu, 28 May 2026 07:21:07 GMT
 ---
 # package:ffigen を使った FFI バインディングの生成

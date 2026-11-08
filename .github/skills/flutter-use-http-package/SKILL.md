@@ -2,7 +2,7 @@
 name: flutter-use-http-package
 description: `http` パッケージを使って GET、POST、PUT、DELETE リクエストを実行します。REST API からデータを取得または送信する場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 21:36:42 GMT
 ---
 # Flutter のネットワーク通信を実装する

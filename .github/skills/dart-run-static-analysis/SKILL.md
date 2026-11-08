@@ -2,7 +2,7 @@
 name: dart-run-static-analysis
 description: `dart analyze` を実行して警告やエラーを特定し、`dart fix --apply` を使って機械的な lint の問題を自動修正します。開発中のコード品質の確保や、変更のコミット前に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 24 Apr 2026 15:09:34 GMT
 ---
 # Dart コードの解析と修正

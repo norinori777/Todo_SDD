@@ -114,3 +114,6 @@ Obsidianで管理しているTodoを参照・作成・更新できるように�
 - リポジトリ内の参照リンクが正しいことを確認する。
 - 完了時に、作成・更新した内容と未解決の確認事項を日本語で報告する。
 ```
+
+## Androidエミュレーター起動
+ & 'C:\work\flutter\flutter\bin\flutter.bat' emulators --launch Pixel_9a

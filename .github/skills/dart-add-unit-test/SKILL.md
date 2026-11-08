@@ -2,7 +2,7 @@
 name: dart-add-unit-test
 description: `package:test` を使った関数、メソッド、クラスの単体テストを作成・整理します。新しいロジックを作成する場合やバグを修正する場合に、コードの正しさを保ち、リグレッションを防ぐために使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Mon, 03 Aug 2026 21:51:24 GMT
 ---
 # Dart と Flutter アプリケーションのテスト

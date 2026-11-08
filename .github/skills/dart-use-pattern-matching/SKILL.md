@@ -3,7 +3,7 @@ name: dart-use-pattern-matching
 description: >-
   Dart 3 のパターンマッチング、switch 式、分割代入を慣用的に適用し、データスキーマの検証、代数的データ型の処理、制御フローの分解を行います。複雑な if-else チェーンのリファクタリング、多態的な JSON や API レスポンスの解析、List、URI／パスセグメント、String.split() のトークン、Record、Map の分割代入、sealed クラスの網羅性の保証に使用します。単純な真偽値条件、単一変数の型昇格（`is` を使用）、基本的なコレクションのフィルタリングには使用しないでください。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 13 Oct 2026 19:45:00 GMT
 ---
 # Dart のパターンの実装

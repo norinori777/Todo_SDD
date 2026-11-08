@@ -4,7 +4,7 @@ description: |-
   `package:matcher` の `expect` などの関数を、
   `package:checks` の同等機能に置き換えます。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 09 Jun 2026 19:30:00 GMT
 ---
 # Dart テストを package:checks に移行する

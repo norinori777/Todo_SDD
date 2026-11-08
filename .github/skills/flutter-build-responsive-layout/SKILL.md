@@ -2,7 +2,7 @@
 name: flutter-build-responsive-layout
 description: `LayoutBuilder`、`MediaQuery`、`Expanded` / `Flexible` を使用して、さまざまな画面サイズに適応するレイアウトを作成します。モバイルとタブレット／デスクトップの両方で UI を適切に表示する必要がある場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 20:17:40 GMT
 ---
 # アダプティブレイアウトの実装
