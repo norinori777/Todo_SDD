@@ -3,7 +3,7 @@ name: dart-use-primary-constructors
 description: >
   Dart で構文的にも意味的にも正しいプライマリコンストラクターを記述できるよう支援し、新しいコンストラクター構文、空の本体にセミコロンを使う構文、本体内の初期化リスト構文、短縮コンストラクター構文への移行や使用をサポートします。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Thu, 09 Jul 2026 23:13:25 GMT
 ---
 

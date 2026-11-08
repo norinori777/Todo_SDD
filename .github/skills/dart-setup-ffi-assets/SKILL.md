@@ -2,7 +2,7 @@
 name: dart-setup-ffi-assets
 description: "Dart の Native Assets フックシステム（package:hooks と package:native_toolchain_c を利用する hook/build.dart および hook/link.dart）を使って、C/C++ ソースコードを動的または静的ライブラリ（Code Assets）としてコンパイル、パッケージ化する方法を案内します。「native assets のセットアップ」「C/C++ ソースコードのコンパイル」「動的ライブラリのバンドル」「ネイティブ C コードのビルド」「native assets のリンク」「build.dart または link.dart フックの実装」「Dart/Flutter への C/C++ 相互運用の統合」を依頼された場合に使用します。手動でのツールチェーン制御を避ける方法、ハッシュ検証付きの安全なバイナリダウンロードの設定、package:record_use のマッピングによる高度なリンカーのツリーシェイキングも案内します。"
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 29 May 2026 09:10:00 GMT
 ---
 # Native Assets フックで C コードを Code Assets にコンパイルする

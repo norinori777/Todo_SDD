@@ -2,7 +2,7 @@
 name: dart-resolve-package-conflicts
 description: パッケージのバージョン競合を修正するワークフロー。互換性のないパッケージバージョンが原因で `pub get` が失敗した場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 24 Apr 2026 15:11:14 GMT
 ---
 # Dart の依存関係を管理する

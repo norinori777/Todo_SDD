@@ -2,7 +2,7 @@
 name: flutter-setup-localization
 description: `flutter_localizations` と `intl` の依存関係を追加し、`pubspec.yaml` で `generate: true` を有効にして、`l10n.yaml` 設定ファイルを作成します。新しい Flutter プロジェクトでローカライズ機能を初期化する場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 21:27:35 GMT
 ---
 # Flutter アプリケーションの国際化

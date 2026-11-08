@@ -2,7 +2,7 @@
 name: flutter-fix-layout-issues
 description: Dart および Flutter MCP ツールを使って、Flutter のレイアウトエラー（オーバーフロー、上限のない制約）を修正します。「RenderFlex overflowed」「Vertical viewport was given unbounded height」などのレイアウト問題に対処する場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 19:45:59 GMT
 ---
 # Flutter レイアウトエラーの解決

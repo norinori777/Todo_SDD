@@ -2,7 +2,7 @@
 name: flutter-add-widget-preview
 description: previews.dart システムを使用して、プロジェクトにインタラクティブなウィジェットプレビューを追加します。一貫したデザインとインタラクティブなテストを実現するため、新しい UI コンポーネントの作成時や既存画面の更新時に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 20:05:23 GMT
 ---
 # Flutter ウィジェットのプレビュー

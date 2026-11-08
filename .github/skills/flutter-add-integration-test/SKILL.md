@@ -2,7 +2,7 @@
 name: flutter-add-integration-test
 description: Flutter の integration_test と flutter_test を使ってユーザーフローを永続的な統合テストにします。プロジェクトに統合テストを追加する場合や、対応するMCPツールでUIを調査する場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 18:29:20 GMT
 ---
 # Flutter 統合テストの実装

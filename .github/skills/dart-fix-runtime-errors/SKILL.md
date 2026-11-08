@@ -2,7 +2,7 @@
 name: dart-fix-runtime-errors
 description: get_runtime_errors と lsp を使って実行中のスタックトレースを取得し、失敗箇所を特定して修正を適用し、hot_reload で解消を確認します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 24 Apr 2026 15:13:22 GMT
 ---
 # Dart の静的解析エラーを解決する

@@ -2,7 +2,7 @@
 name: flutter-setup-declarative-routing
 description: `go_router` などのパッケージを使って `MaterialApp.router` を構成し、高度な URL ベースのナビゲーションを実現します。特定のディープリンクやブラウザー履歴のサポートが必要な Web アプリケーションまたはモバイルアプリの開発時に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 21:08:03 GMT
 ---
 # ルーティングとディープリンクの実装

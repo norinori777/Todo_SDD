@@ -2,7 +2,7 @@
 name: dart-generate-test-mocks
 description: `package:mockito` と `build_runner` を使って、外部依存のモックオブジェクトを定義・生成します。API やデータベースなどの複雑な外部サービスに依存するクラスを単体テストする際に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 24 Apr 2026 15:13:58 GMT
 ---
 # Dart アプリケーションのテストとモック

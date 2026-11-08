@@ -2,7 +2,7 @@
 name: dart-collect-coverage
 description: coverage パッケージを使ってカバレッジを収集し、LCOV レポートを作成します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Fri, 24 Apr 2026 15:14:32 GMT
 ---
 # Dart および Flutter のテストカバレッジの実装

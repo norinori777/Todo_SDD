@@ -148,17 +148,18 @@ You **MUST** consider the user input before proceeding (if not empty).
    - **Task dependencies**: Sequential vs parallel execution rules
    - **Task details**: ID, description, file paths, parallel markers [P]
    - **Execution flow**: Order and dependency requirements
+   - **TDD readiness**: For every behavior-changing task, including foundational behavior, identify the corresponding test and implementation paths and a Red → Green → Refactor cycle. If tasks are missing or ordered as a batch of tests followed by implementation, revise tasks.md to describe small behavior-specific cycles before implementing; do not mark unperformed work complete.
 
 6. Execute implementation following the task plan:
    - **Phase-by-phase execution**: Complete each phase before moving to the next
    - **Respect dependencies**: Run sequential tasks in order, parallel tasks [P] can run together
-   - **Follow TDD approach**: Execute test tasks before their corresponding implementation tasks
+   - **Follow TDD approach**: Invoke the `tdd` skill for behavior-changing implementation; if it is unavailable, read and follow `.github/skills/tdd/SKILL.md`. Build the test list from requirements, then complete one behavior's Red → Green → Refactor cycle before writing the next test. Report and stop if the expected Red cannot be observed.
    - **File-based coordination**: Tasks affecting the same files must run sequentially
    - **Validation checkpoints**: Verify each phase completion before proceeding
 
 7. Implementation execution rules:
    - **Setup first**: Initialize project structure, dependencies, configuration
-   - **Tests before code**: If you need to write tests for contracts, entities, and integration scenarios
+   - **Tests before behavior**: Apply the same one-behavior-at-a-time TDD cycle to contracts, entities, integration scenarios, and foundational behavior. Setup, documentation-only changes, and configuration without behavior changes do not require a Red cycle; behavior-preserving refactoring requires passing existing tests.
    - **Core development**: Implement models, services, CLI commands, endpoints
    - **Integration work**: Database connections, middleware, logging, external services
    - **Polish and validation**: Unit tests, performance optimization, documentation
@@ -175,6 +176,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Verify all required tasks are completed
    - Check that implemented features match the original specification
    - Validate that tests pass and coverage meets requirements
+   - Map the TDD test list to implemented tests and report the Red and Green verification results or any blocking constraints
    - Confirm the implementation follows the technical plan
 
 Note: This command assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running `/speckit-tasks` first to regenerate the task list.

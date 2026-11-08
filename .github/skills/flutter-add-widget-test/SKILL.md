@@ -2,7 +2,7 @@
 name: flutter-add-widget-test
 description: `WidgetTester` を使って、UI の描画とユーザー操作（タップ、スクロール、テキスト入力）を検証するコンポーネントレベルのテストを実装します。特定のウィジェットが正しいデータを表示し、期待どおりのイベントに応答するかを検証する場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 21:15:41 GMT
 ---
 # Flutter ウィジェットテストの記述

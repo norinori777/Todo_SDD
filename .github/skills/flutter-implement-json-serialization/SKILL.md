@@ -2,7 +2,7 @@
 name: flutter-implement-json-serialization
 description: `dart:convert` を使って `fromJson` メソッドと `toJson` メソッドを持つモデルクラスを作成します。単純なデータ構造で JSON キーをクラスプロパティに手動で対応付ける場合に使用します。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Tue, 21 Apr 2026 21:44:50 GMT
 ---
 # Flutter での JSON の手動シリアライズ

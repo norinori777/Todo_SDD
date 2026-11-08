@@ -3,7 +3,7 @@ name: dart-use-path-package
 description: >-
   `package:path` と `package:file` を使った、クロスプラットフォーム対応のファイル／ディレクトリパス操作、セグメント分割、拡張子抽出、コンテキスト変換。ファイルパス、ディレクトリ名、拡張子の作成、調査、結合、分割、リファクタリングや、生の文字列によるパス操作（`.split('/')`、`'$dir/$file'`、`.endsWith('.ext')`、`.replaceAll('\\', '/')`）の置き換えに使用します。HTTP ネットワーク URI のルーティング、データベースのクエリ文字列、パス以外の文字列処理には使用しないでください。
 metadata:
-  model: models/gemini-3.1-pro-preview
+  model: gpt-6-luna
   last_modified: Wed, 23 Sep 2026 22:10:00 GMT
 ---
 
