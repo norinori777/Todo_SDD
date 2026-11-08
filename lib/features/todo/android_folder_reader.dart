@@ -12,6 +12,17 @@ class AndroidFolderAccessSource implements FolderAccessSource {
   Future<void> persistFolder(Uri uri) =>
       _channel.invokeMethod<void>('persistFolder', uri.toString());
 
+  Future<Uri> pickAndPersistFolder() async {
+    final value = await _channel.invokeMethod<String>('pickFolder');
+    if (value == null) {
+      throw PlatformException(
+        code: 'invalid_response',
+        message: '選択したフォルダーURIを取得できませんでした',
+      );
+    }
+    return Uri.parse(value);
+  }
+
   @override
   Future<FolderAccess> currentFolder() async {
     final uri = await _channel.invokeMethod<String>('getFolder');

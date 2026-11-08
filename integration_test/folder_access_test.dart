@@ -18,9 +18,7 @@ void main() {
     );
   });
 
-  testWidgets('テスト用フォルダーを選択してサブフォルダーを再帰読込する', (
-    tester,
-  ) async {
+  testWidgets('テスト用フォルダーを選択してサブフォルダーを再帰読込する', (tester) async {
     const channel = MethodChannel('todo_sdd/folder_access');
     const documentId = 'primary:Documents/TodoSdd_IntegrationTest_20261102';
     final selectedUri = await channel.invokeMethod<String>(
@@ -59,7 +57,11 @@ void main() {
     final source = AndroidFolderAccessSource();
 
     await expectLater(
-      source.persistFolder(Uri.parse('content://ungranted/tree/example')),
+      source.persistFolder(
+        Uri.parse(
+          'content://com.android.externalstorage.documents/tree/primary%3ADocuments%2FUntrusted',
+        ),
+      ),
       throwsA(
         isA<PlatformException>().having(
           (error) => error.code,
