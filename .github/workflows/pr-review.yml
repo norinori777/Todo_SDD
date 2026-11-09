@@ -64,8 +64,7 @@ jobs:
     needs: review
     runs-on: ubuntu-latest
     permissions:
-      issues: write
-      pull-requests: read
+      pull-requests: write
     steps:
       - name: Verify the PR is still open at the reviewed revision
         env:
