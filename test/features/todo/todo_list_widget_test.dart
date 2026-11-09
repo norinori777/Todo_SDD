@@ -187,6 +187,44 @@ void main() {
     expect(openedTodo, same(todo));
   });
 
+  testWidgets('初期タグ検索は階層を含めて完全一致のTodoだけを表示する', (tester) async {
+    final todos = [
+      Todo(
+        note: Note(id: NoteId('notes/exact.md'), content: '#todo'),
+        tags: const ['todo', '仕事/会議'],
+      ),
+      Todo(
+        note: Note(id: NoteId('notes/parent.md'), content: '#todo'),
+        tags: const ['todo', '仕事'],
+      ),
+      Todo(
+        note: Note(id: NoteId('notes/child.md'), content: '#todo'),
+        tags: const ['todo', '仕事/会議/補助'],
+      ),
+    ];
+    await tester.pumpWidget(
+      MaterialApp(
+        home: TodoListScreen(
+          initialSearchQuery: '#仕事/会議',
+          loadTodos: () async => TodoLoadSuccess(todos, const []),
+          onOpenDetails: (_) {},
+          onOpenEdit: (_) {},
+          onCreate: () {},
+          normalizeTags: (tags) async => tags,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('exact'), findsOneWidget);
+    expect(find.text('parent'), findsNothing);
+    expect(find.text('child'), findsNothing);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      '#仕事/会議',
+    );
+  });
+
   testWidgets('作成ボタンで作成画面の公開境界を呼び出す', (tester) async {
     var createRequested = false;
     await tester.pumpWidget(

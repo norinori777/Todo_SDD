@@ -12,6 +12,7 @@ class TodoListScreen extends StatefulWidget {
     required this.onOpenDetails,
     required this.onOpenEdit,
     required this.onCreate,
+    this.initialSearchQuery = '',
     this.normalizeTags = _normalizeTags,
     super.key,
   });
@@ -20,6 +21,7 @@ class TodoListScreen extends StatefulWidget {
   final FutureOr<void> Function(Todo) onOpenDetails;
   final FutureOr<void> Function(Todo) onOpenEdit;
   final FutureOr<void> Function() onCreate;
+  final String initialSearchQuery;
   final Future<List<String>> Function(List<String>) normalizeTags;
 
   @override
@@ -38,7 +40,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
   void initState() {
     super.initState();
     _loadFuture = widget.loadTodos();
-    _searchController = TextEditingController();
+    _searchQuery = widget.initialSearchQuery;
+    _searchController = TextEditingController(text: widget.initialSearchQuery);
   }
 
   @override
