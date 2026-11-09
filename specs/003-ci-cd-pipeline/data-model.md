@@ -8,8 +8,8 @@
 |---|---|---|
 | commit SHA | Git commit SHA | 不変の検証対象。PR の場合は workflow が検証した PR revision |
 | branch | branch name | push 元、または PR head branch |
-| event | `push` / `pull_request` | spec の対象イベントに限定 |
-| pull request number | integer, optional | `pull_request` の場合に必須 |
+| event | `push` / `pull_request` / `pull_request_target` | CI は `pull_request`、review は `pull_request_target` |
+| pull request number | integer, optional | `pull_request` または `pull_request_target` の場合に必須 |
 
 **Relationships**: 1つの検証対象変更に3つの CI 検査結果が紐付く。PR の検証対象は、その PR の最新 revision と関連する commit SHA で識別される。
 
