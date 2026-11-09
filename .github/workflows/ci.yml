@@ -24,7 +24,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: flutter analyze
+      - run: exit 1
 
   flutter-test:
     name: flutter-test
