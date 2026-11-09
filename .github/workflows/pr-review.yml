@@ -90,7 +90,7 @@ jobs:
           comment_file="$RUNNER_TEMP/review-comment.md"
           printf '%s' "$COMMENT_BASE64" | base64 --decode > "$comment_file"
           test -s "$comment_file"
-          gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$comment_file"
+          gh api --method POST "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" --field "body=@$comment_file"
 
   pr-review:
     name: pr-review
