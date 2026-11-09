@@ -42,7 +42,7 @@ jobs:
           "TEMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
           "TMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
       - run: flutter pub get
-      - run: exit 1
+      - run: flutter test
 
   android-build:
     name: android-build
@@ -59,4 +59,4 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: flutter build apk --debug
+      - run: exit 1
