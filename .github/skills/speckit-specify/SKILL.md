@@ -70,11 +70,18 @@ Given that feature description, do this:
      - "Create a dashboard for analytics" → "analytics-dashboard"
      - "Fix payment processing timeout bug" → "fix-payment-timeout"
 
-2. **Branch creation** (optional, via hook):
+2. **Create and switch to the feature branch**:
 
-   If a `before_specify` hook ran successfully in the Pre-Execution Checks above, it will have created/switched to a git branch and output JSON containing `BRANCH_NAME` and `FEATURE_NUM`. Note these values for reference, but the branch name does **not** dictate the spec directory name.
+   If a `before_specify` hook ran successfully in the Pre-Execution Checks above, it will have created/switched to a git branch and output JSON containing `BRANCH_NAME` and `FEATURE_NUM`. Record these values and continue.
 
-   If the user explicitly provided `GIT_BRANCH_NAME`, pass it through to the hook so the branch script uses the exact value as the branch name (bypassing all prefix/suffix generation).
+   Otherwise, create and switch to a branch before creating the spec directory:
+   - If the user explicitly provided `GIT_BRANCH_NAME`, use that exact name. Validate it with `git check-ref-format --branch` before creating it.
+   - If no explicit branch name was provided, reuse the generated 2-4 word short name and the configured numbering mode from `.specify/init-options.json`. Invoke `.specify/scripts/powershell/create-new-feature.ps1 -Json -DryRun -ShortName <short-name> <feature-description>` to obtain the canonical `BRANCH_NAME` and `FEATURE_NUM` without creating files. When the numbering mode is `timestamp`, pass `-Timestamp`; otherwise use the script's sequential default. If only deprecated `branch_numbering` is present, follow the same mode and warning rules as step 3.
+   - Confirm the repository root and current branch, then run `git switch -c <BRANCH_NAME>`. If already on that exact branch, continue without creating it again. If the branch exists but is not checked out, or branch creation fails, stop and report the error; do not silently switch to, overwrite, or reuse another branch.
+   - Do not stash, discard, or otherwise alter uncommitted changes. If Git cannot switch safely, stop and preserve the worktree.
+   - If branch creation fails, do not create the spec directory or spec file.
+
+   If `GIT_BRANCH_NAME` was explicitly provided and a `before_specify` hook is configured, pass it through to the hook so it uses the exact requested name.
 
 3. **Create the spec feature directory**:
 
@@ -106,7 +113,7 @@ Given that feature description, do this:
 
    **IMPORTANT**:
    - You must only create one feature per `/speckit-specify` invocation
-   - The spec directory name and the git branch name are independent — they may be the same but that is the user's choice
+   - The spec directory name and the git branch name are independent — they may be the same but that is the user's choice. The spec's `Feature Branch` metadata must record the actual branch created or selected in step 2.
    - The spec directory and file are always created by this command, never by the hook
 
 4. Load the resolved active `spec-template` file to understand required sections.
@@ -275,7 +282,7 @@ Report completion to the user with:
 - Checklist results summary
 - Readiness for the next phase (`/speckit-clarify` or `/speckit-plan`)
 
-**NOTE:** Branch creation is handled by the `before_specify` hook (git extension). Spec directory and file creation are always handled by this core command.
+**NOTE:** A successful `before_specify` hook may create and switch the branch. If no such hook runs, this command creates and switches the branch using the repository's Spec Kit PowerShell script and Git. Spec directory and file creation are always handled by this core command.
 
 ## Quick Guidelines
 
