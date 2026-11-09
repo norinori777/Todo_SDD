@@ -24,7 +24,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: exit 1
+      - run: flutter analyze
 
   flutter-test:
     name: flutter-test
@@ -42,7 +42,7 @@ jobs:
           "TEMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
           "TMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
       - run: flutter pub get
-      - run: flutter test
+      - run: exit 1
 
   android-build:
     name: android-build
