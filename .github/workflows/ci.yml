@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flutter-analyze:
+    name: flutter-analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.7'
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
