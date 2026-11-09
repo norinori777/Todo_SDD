@@ -36,6 +36,11 @@ jobs:
           flutter-version: '3.41.7'
           channel: stable
           cache: true
+      - name: Use a canonical temporary directory
+        shell: pwsh
+        run: |
+          "TEMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
+          "TMP=$env:RUNNER_TEMP" >> $env:GITHUB_ENV
       - run: flutter pub get
       - run: flutter test
 
