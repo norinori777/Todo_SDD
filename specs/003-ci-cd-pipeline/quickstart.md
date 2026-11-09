@@ -34,7 +34,7 @@ flutter build apk --debug
 ## Pull Request 検証
 
 1. PR を作成し、後からコミットを追加して更新する。
-2. PR作成時と更新時のそれぞれで `pull_request` workflow run が作成されることを確認する。
+2. PR作成時と更新時のそれぞれで、CI用の `pull_request` run とレビュー用の `pull_request_target` run が作成されることを確認する。
 3. PR Checks を開き、最新 revision SHA に対する3検査と `pr-review` を確認する。更新前のSHAにだけ成功checkがある場合は失敗とする。
 4. 指摘のあるPRと指摘のないPR（例: 独立した文書のみの変更）の両方で、review comment に対象 PR、確認範囲、指摘または「指摘なし」が記録されていることを確認する。レビューworkflowは `github.workflow_sha` のagent定義を使い、PR headをcheckoutせず、コメントはREST issue-comment endpoint経由で投稿する。`pull_request_target` はworkflowがdefault branchに存在する場合に起動する。
 

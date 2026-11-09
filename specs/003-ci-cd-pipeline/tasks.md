@@ -54,10 +54,13 @@ description: "Task list for CI/CD Validation and Review Gate"
 ### TDD cycles for User Story 2
 
 - [X] T006 [US2] Pull Requestの作成・更新と最新revisionのテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、PRイベントでcheckが開始されない／更新前のSHAの成功が最新結果に見えるRedを確認してから、`opened`、`synchronize`、`reopened` を対象とする `pull_request` triggerと古い実行を最新結果として流用しない設定を `.github/workflows/ci.yml` に実装し、一時PRを更新して最新revisionの3 checkでGreenを確認した後にイベント設定をRefactorする
-- [ ] T007 [US2] 指摘あり・指摘なし両方のレビューコメントのテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、レビュー完了コメントが投稿されないRedを確認してから、default branch上の信頼済み定義で動く `pull_request_target` workflow、`github.workflow_sha` のagent定義、RESTコメント投稿を実装し、両ケースのコメント投稿でGreenを確認して実行・投稿手順をRefactorする
+- [X] T007 [US2] 指摘あり・指摘なし両方のレビューコメントのテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、レビュー完了コメントが投稿されないRedを確認してから、default branch上の信頼済み定義で動く `pull_request_target` workflow、`github.workflow_sha` のagent定義、RESTコメント投稿を実装し、両ケースのコメント投稿でGreenを確認して実行・投稿手順をRefactorする
 - [ ] T008 [US2] Copilot CLI実行・認証・PR特定・コメント投稿の各失敗テストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、失敗が成功checkになるRedを確認してから、いずれかの処理が失敗または未完了なら `pr-review` が成功しない明示的な失敗処理を `.github/workflows/pr-review.yml` に実装し、各失敗でGreenを確認して成功扱いの経路がないことをRefactorで確認する
-- [ ] T009 [US2] 権限境界のテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、`issues: write` でのコメント投稿が403になるRedを確認してから、CIを `contents: read` のみ、reviewを読み取り権限と `copilot-requests: write`、comment jobを `pull-requests: write` のみに分離する。PRコメント専用scopeがないため `pull_request_target` と `github.workflow_sha` checkoutでPR headのコード・workflowを実行しない境界を実装し、実効権限のテストでGreenを確認する
-- [ ] T010 [US2] 必須checkと人間によるmergeのテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、未成功checkでもmergeが許可されるRedを確認してから、`develop` branchのrulesetまたはbranch protectionに `flutter-analyze`、`flutter-test`、`android-build`、`pr-review` を必須登録し、直接mergeを禁止して自動mergeを無効にする設定を行い、失敗・未完了時のmergeブロックと全成功後の手動mergeのテストでGreenを確認して設定手順をRefactorする
+
+> T008の残り: Copilot CLI実行・認証とPR特定の失敗は個別に注入・検証していない。コメント投稿とaggregate checkの失敗は既存の検証で確認済み。未検証ケースを安全に確認するまでT008/T011を完了扱いにしない。
+
+- [X] T009 [US2] 権限境界のテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、`issues: write` でのコメント投稿が403になるRedを確認してから、CIを `contents: read` のみ、reviewを読み取り権限と `copilot-requests: write`、comment jobを `pull-requests: write` のみに分離する。PRコメント専用scopeがないため `pull_request_target` と `github.workflow_sha` checkoutでPR headのコード・workflowを実行しない境界を実装し、実効権限のテストでGreenを確認する
+- [X] T010 [US2] 必須checkと人間によるmergeのテストを `specs/003-ci-cd-pipeline/quickstart.md` に追加し、未成功checkでもmergeが許可されるRedを確認してから、`develop` branchのrulesetまたはbranch protectionに `flutter-analyze`、`flutter-test`、`android-build`、`pr-review` を必須登録し、直接mergeを禁止して自動mergeを無効にする設定を行い、失敗・未完了時のmergeブロックと全成功後の手動mergeのテストでGreenを確認して設定手順をRefactorする
 
 **Checkpoint**: 最新revisionの4 checkとレビューコメントが確認でき、必須checkの失敗・未完了時はmergeできず、成功後も自動mergeされない。
 
