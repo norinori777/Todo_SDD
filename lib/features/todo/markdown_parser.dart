@@ -125,6 +125,54 @@ MarkdownParseResult parseMarkdownNote(Note note) {
   );
 }
 
+List<String> extractWikiLinkTargets(String content) {
+  final normalized = content.startsWith('\uFEFF')
+      ? content.substring(1)
+      : content;
+  final lines = normalized.split(RegExp(r'\r\n|\n|\r'));
+  var bodyStart = 0;
+  if (lines.isNotEmpty && lines.first == '---') {
+    final closingIndex = lines.indexOf('---', 1);
+    if (closingIndex >= 0) bodyStart = closingIndex + 1;
+  }
+  final body = lines.skip(bodyStart).join('\n');
+  final visible = _maskHtmlComments(
+    _maskHtmlTags(_maskInlineCode(_maskFencedCode(body))),
+  );
+  final codeUnits = visible.codeUnits;
+  final targets = <String>[];
+  var index = 0;
+  while (index + 1 < codeUnits.length) {
+    if (codeUnits[index] != 0x5b ||
+        codeUnits[index + 1] != 0x5b ||
+        _isEscaped(codeUnits, index)) {
+      index++;
+      continue;
+    }
+
+    var close = index + 2;
+    while (close + 1 < codeUnits.length &&
+        !(codeUnits[close] == 0x5d && codeUnits[close + 1] == 0x5d)) {
+      close++;
+    }
+    if (close + 1 >= codeUnits.length) {
+      index += 2;
+      continue;
+    }
+
+    final link = visible.substring(index + 2, close);
+    final aliasSeparator = link.indexOf('|');
+    final target =
+        (aliasSeparator < 0 ? link : link.substring(0, aliasSeparator))
+            .split('#')
+            .first
+            .trim();
+    if (target.isNotEmpty) targets.add(target);
+    index = close + 2;
+  }
+  return List<String>.unmodifiable(targets);
+}
+
 String _normalizeFrontmatterTag(String tag) =>
     tag.startsWith('#') ? tag.substring(1) : tag;
 
